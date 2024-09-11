@@ -1,0 +1,54 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
+}
+
+body {
+  background-color: #0f1923;
+}
+
+li {
+  list-style: none;
+}
+
+li a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.btn {
+  padding: 0.8rem 1rem;
+  background-color: rgb(241, 44, 76);
+  border-radius: 8px;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+}
+
+main {
+  padding: 48px 0;
+}
+
+a {
+  color: #8a90a2;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+@media (max-width: 768px) {
+  main {
+    padding: 12px 0;
+  }
+}
