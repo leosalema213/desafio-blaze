@@ -23,7 +23,7 @@ export const loadingGame = (
       if (displayWidth <= 768) {
         setTimeout(() => {
           requestAnimationFrame(updateProgress);
-        }, 60);
+        }, 80);
       } else {
         setTimeout(() => {
           requestAnimationFrame(updateProgress);
@@ -37,9 +37,15 @@ export const loadingGame = (
     updateProgress();
   }, 2000);
 
-  setTimeout(() => {
-    gameState.jogo = "true";
-  }, 14000);
+  if (displayWidth <= 768) {
+    setTimeout(() => {
+      gameState.jogo = "true";
+    }, 16000)
+  } else {
+    setTimeout(() => {
+      gameState.jogo = "true";
+    }, 14000);
+  }
 };
 
 export function spinRolette(gameState: GameState, numero: Numero): void {
