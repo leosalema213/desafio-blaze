@@ -8,7 +8,7 @@ import { differenceRouletteCenter } from "../../utils/GameFunctions";
 const props = defineProps<{
   contador: number;
   entradas: Entrada[];
-  resultado: number;
+  resultado: number | undefined;
   jogo: "true" | "false" | "loading" | "newGame";
 }>();
 

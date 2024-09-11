@@ -1,7 +1,7 @@
 <script setup lang="ts">
 const props = defineProps<{
   contador: number;
-  resultado: number;
+  resultado: number | undefined;
 }>();
 </script>
 

@@ -1,8 +1,7 @@
 <script setup lang="ts">
 
 const props = defineProps<{
-  color: string;
-  entries: string[];
+  color: 'red' | 'black' | 'white';
 }>();
 
 </script>

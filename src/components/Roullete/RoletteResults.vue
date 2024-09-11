@@ -1,6 +1,6 @@
 <script setup lang="ts">
 const props = defineProps<{
-  ultimosResultados: number[];
+  ultimosResultados: number[] | undefined;
 }>();
 </script>
 
