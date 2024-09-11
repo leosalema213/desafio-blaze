@@ -21,7 +21,7 @@ export const loadingGame = (
       if (window.innerWidth <= 768) {
         setTimeout(() => {
           requestAnimationFrame(updateProgress);
-        }, 90);
+        }, 120);
         return;
       }
       setTimeout(() => {
