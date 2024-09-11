@@ -6,45 +6,50 @@ export const loadingGame = (
 ): void => {
   gameState.jogo = "loading";
 
-  const updateContador = (): void => {
+  let lastTimeContador = performance.now();
+  let lastTimeProgress = performance.now();
+
+  const updateContador = (currentTime: number): void => {
+    const deltaTime = currentTime - lastTimeContador;
+    lastTimeContador = currentTime;
+
     if (gameState.contador > 0) {
-      gameState.contador--;
+      const decrementoPorSegundo = 1;
+      const decremento = (decrementoPorSegundo * deltaTime) / 10;
+      gameState.contador-= decremento;
+      
+      if (gameState.contador < 0) gameState.contador = 0;
+
       requestAnimationFrame(updateContador);
     }
   };
 
-  const updateProgress = (): void => {
+  const updateProgress = (currentTime: number): void => {
+    const deltaTime = currentTime - lastTimeProgress;
+    lastTimeProgress = currentTime;
+
+    const incrementoPorSegundo = window.innerWidth <= 768 ? 0.83 : 1.31;
+    const incremento = (incrementoPorSegundo * deltaTime) / 150;
     if (gameState.progress! <= 100) {
-      gameState.progress!++;
+      gameState.progress! += incremento;
+      if (gameState.progress! > 100) gameState.progress! = 100;
+
       progressElement.style.transform = `translateX(-${gameState.progress}%)`;
 
-      if (window.innerWidth <= 768) {
-        setTimeout(() => {
-          requestAnimationFrame(updateProgress);
-        }, 120);
-        return;
-      }
-      setTimeout(() => {
-        requestAnimationFrame(updateProgress);
-      }, 76);
+      requestAnimationFrame(updateProgress);
     }
   };
 
   setTimeout(() => {
     requestAnimationFrame(updateContador);
-    updateProgress();
+    requestAnimationFrame(updateProgress);
   }, 2000);
 
-  if (window.innerWidth <= 768) {
-    setTimeout(() => {
-      gameState.jogo = "true";
-    }, 18000);
+  const loadingTime = window.innerWidth <= 768 ? 18000 : 14000;
 
-    return;
-  }
   setTimeout(() => {
     gameState.jogo = "true";
-  }, 14000);
+  }, loadingTime);
 };
 
 export function spinRolette(gameState: GameState, numero: Numero): void {

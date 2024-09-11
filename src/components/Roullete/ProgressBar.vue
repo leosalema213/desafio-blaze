@@ -11,7 +11,7 @@ const props = defineProps<{
       <div class="progress"></div>
     </div>
     <div v-if="props.contador > 0" class="time_left">
-      Girando em <span>{{ props.contador / 100 }}</span>
+      Girando em <span>{{ Math.round(props.contador) / 100 }}</span>
     </div>
     <div v-else-if="props.resultado != 0" class="time_text">
       Blaze Girou <span>{{ props.resultado }}!</span>
