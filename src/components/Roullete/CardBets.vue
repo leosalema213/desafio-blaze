@@ -166,7 +166,7 @@ const props = defineProps<{
 }
 
 @media (max-width: 768px) {
-  .card_container[data-v-bf65d6c8] {
+  .card_container {
     flex-basis: 100%;
     max-width: 100%;
   }
