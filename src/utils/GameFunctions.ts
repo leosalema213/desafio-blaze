@@ -17,6 +17,13 @@ export const loadingGame = (
     if (gameState.progress! <= 100) {
       gameState.progress!++;
       progressElement.style.transform = `translateX(-${gameState.progress}%)`;
+
+      if (window.innerWidth <= 768) {
+        setTimeout(() => {
+          requestAnimationFrame(updateProgress);
+        }, 90);
+        return;
+      }
       setTimeout(() => {
         requestAnimationFrame(updateProgress);
       }, 76);
@@ -31,12 +38,13 @@ export const loadingGame = (
   if (window.innerWidth <= 768) {
     setTimeout(() => {
       gameState.jogo = "true";
-    }, 16000);
-  } else {
-    setTimeout(() => {
-      gameState.jogo = "true";
-    }, 14000);
+    }, 18000);
+
+    return;
   }
+  setTimeout(() => {
+    gameState.jogo = "true";
+  }, 14000);
 };
 
 export function spinRolette(gameState: GameState, numero: Numero): void {
