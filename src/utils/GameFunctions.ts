@@ -17,9 +17,18 @@ export const loadingGame = (
     if (gameState.progress! <= 100) {
       gameState.progress!++;
       progressElement.style.transform = `translateX(-${gameState.progress}%)`;
-      setTimeout(() => {
-        requestAnimationFrame(updateProgress);
-      }, 76);
+
+      const displayWidth = window.innerWidth;
+
+      if (displayWidth <= 768) {
+        setTimeout(() => {
+          requestAnimationFrame(updateProgress);
+        }, 60);
+      } else {
+        setTimeout(() => {
+          requestAnimationFrame(updateProgress);
+        }, 76);
+      }
     }
   };
 
