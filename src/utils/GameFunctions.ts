@@ -17,18 +17,9 @@ export const loadingGame = (
     if (gameState.progress! <= 100) {
       gameState.progress!++;
       progressElement.style.transform = `translateX(-${gameState.progress}%)`;
-
-      const displayWidth = window.innerWidth;
-
-      if (displayWidth <= 768) {
-        setTimeout(() => {
-          requestAnimationFrame(updateProgress);
-        }, 80);
-      } else {
-        setTimeout(() => {
-          requestAnimationFrame(updateProgress);
-        }, 76);
-      }
+      setTimeout(() => {
+        requestAnimationFrame(updateProgress);
+      }, 76);
     }
   };
 
@@ -37,10 +28,10 @@ export const loadingGame = (
     updateProgress();
   }, 2000);
 
-  if (displayWidth <= 768) {
+  if (window.innerWidth <= 768) {
     setTimeout(() => {
       gameState.jogo = "true";
-    }, 16000)
+    }, 16000);
   } else {
     setTimeout(() => {
       gameState.jogo = "true";
