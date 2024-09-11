@@ -3,7 +3,7 @@
 
 
 ## Deploy
-https://blaze-leosalema.vercel.app/
+https://desafio-blaze-sszt.vercel.app/
 
 
 ## Funcionalidades
