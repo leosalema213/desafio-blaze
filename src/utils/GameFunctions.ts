@@ -28,11 +28,11 @@ export const loadingGame = (
     const deltaTime = currentTime - lastTimeProgress;
     lastTimeProgress = currentTime;
 
-    const incrementoPorSegundo = window.innerWidth <= 768 ? 0.83 : 1.31;
+    const incrementoPorSegundo = window.innerWidth <= 768 ? 1.27 : 1.3;
     const incremento = (incrementoPorSegundo * deltaTime) / 150;
     if (gameState.progress! <= 100) {
       gameState.progress! += incremento;
-      if (gameState.progress! > 100) gameState.progress! = 100;
+      if (gameState.progress! > 120) gameState.progress! = 100;
 
       progressElement.style.transform = `translateX(-${gameState.progress}%)`;
 
