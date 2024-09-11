@@ -1,5 +1,52 @@
-# Vue 3 + TypeScript + Vite
 
-This template should help get you started developing with Vue 3 and TypeScript in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+# BLAZE - Double
 
-Learn more about the recommended Project Setup and IDE Support in the [Vue Docs TypeScript Guide](https://vuejs.org/guide/typescript/overview.html#project-setup).
+
+## Deploy
+https://blaze-leosalema.vercel.app/
+
+
+## Funcionalidades
+
+- Roleta interativa - feito
+- Ultimos numeros sorteados - feito
+- roleta no mobile - feito
+- sistema de aposta - em progresso
+
+
+## Instalação 🚀
+
+Instale as dependências via npm
+
+
+```bash
+  npm install
+```
+
+Para rodar aplicação localmente
+```bash
+  npm run dev
+```
+
+
+## Referência 📄
+
+- [Vue](https://vuejs.org/)
+- [TypeScript](https://www.typescriptlang.org/)
+
+
+
+## Stack utilizada
+
+**Front-end:** Vue | TypeScript
+
+## Screenshots
+
+![blaze-print1](https://github.com/user-attachments/assets/11a2f89e-1808-4dfe-bf39-93da32dbdbb1)
+
+
+
+
+
+
+
