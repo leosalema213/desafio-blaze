@@ -1,3 +1,7 @@
+<script setup>
+import { RouterLink } from "vue-router";
+</script>
+
 <template>
   <header>
     <div class="container">
@@ -5,29 +9,26 @@
         <div class="menu">
           <img src="../assets/menu-icon.svg" alt="" />
         </div>
-        <a href="#"
-          ><img
-            class="logo_desktop"
-            src="../assets//logo.cf45d2ad.svg"
-            alt=""
-          />
-          <img class="logo_mobile" src="../assets/logo_mobile.svg" alt="" />
-        </a>
+
+        <RouterLink to="/"
+          ><img class="logo_desktop" src="../assets/logo.png" alt="" />
+          <img class="logo_mobile" src="../assets/logo.png" alt=""
+        /></RouterLink>
       </div>
       <div class="content">
         <nav class="subcategory_container">
           <ul>
-            <li class="subcategory_item active">
-              <a href="#">
+            <li class="subcategory_item">
+              <RouterLink to="/cassino" exact-active-class="active">
                 <img src="../assets/cassino-icon.svg" alt="" />
                 Cassino
-              </a>
+              </RouterLink>
             </li>
             <li class="subcategory_item">
-              <a href="#">
+              <RouterLink to="/esportes" exact-active-class="active">
                 <img src="../assets/esporte-icon.svg" alt="" />
                 Esportes
-              </a>
+              </RouterLink>
             </li>
           </ul>
         </nav>
@@ -35,10 +36,13 @@
         <nav class="routes">
           <ul>
             <li>
-              <a href="#">Entrar</a>
+              
+              <li>
+              <RouterLink to="/login" > Entrar </RouterLink>
+            </li>
             </li>
             <li>
-              <a class="btn" href="#">Cadastre-se</a>
+              <RouterLink to="/register" class="btn"> Cadastre-se </RouterLink>
             </li>
           </ul>
         </nav>
@@ -91,6 +95,11 @@ header {
   gap: 36px;
 }
 
+.routes li {
+  display: flex;
+  align-items: center;
+}
+
 .menu {
   justify-content: center;
   cursor: pointer;
@@ -109,25 +118,29 @@ header {
   display: none;
 }
 
-.subcategory_item {
+.subcategory_item a {
   justify-content: center;
   height: 70px;
   padding: 0 1rem;
   border-bottom: 2px solid transparent;
   transition: border-bottom 0.6s ease-out;
-
+  
   &:hover {
-    border-color: rgb(241, 44, 76);
+    border-color: #3399ff;
   }
+}
 
-  &.active {
-    border-color: rgb(241, 44, 76);
-  }
+& a.active {
+  border-color: #3399ff;
 }
 
 .subcategory_item img {
   width: 16px;
   height: 16px;
+}
+
+.logo_desktop {
+  width: 80px;
 }
 
 .subcategory_item a {
@@ -152,6 +165,7 @@ header {
 
   .logo_mobile {
     display: block;
+    width: 60px;
   }
 
   .logo_desktop {
