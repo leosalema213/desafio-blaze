@@ -1,9 +1,9 @@
 <script setup lang="ts">
 import { reactive, onMounted } from "vue";
-import CardBets from "./Roullete/CardBets.vue";
-import RoulettController from "./Roullete/RouletteController.vue";
-import Roulette from "./Roullete/Roulette.vue";
-import RoulettResults from "./Roullete/RoletteResults.vue";
+import CardBets from "../components/Roullete/CardBets.vue";
+import RoulettController from "../components//Roullete/RouletteController.vue";
+import Roulette from "../components//Roullete/Roulette.vue";
+import RoulettResults from "../components//Roullete/RoletteResults.vue";
 
 import { entradas } from "../utils/entradas.ts";
 import {
