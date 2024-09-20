@@ -111,13 +111,7 @@ onMounted(() => {
 }
 
 .content {
-  display: flex;
-  max-width: 1104px;
-  padding: 0 16px;
-  margin: 0 auto;
   justify-content: space-between;
-  align-items: center;
-  width: 100%;
 }
 
 .game_wrapper {
