@@ -31,3 +31,9 @@ export interface Entrada {
   value: number;
   cordenadas: Coordenadas;
 }
+
+export interface CassinoGames {
+  image: string;
+  name: string;
+  link: string;
+}
