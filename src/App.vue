@@ -1,13 +1,15 @@
 <script setup>
+import { RouterView } from "vue-router";
 import Header from "./components/Header.vue";
-import Double from "./components/Double.vue";
 </script>
 
 <template>
   <div>
     <Header />
     <main>
-      <Double />
+      <div class="content">
+        <RouterView />
+      </div>
     </main>
   </div>
 </template>

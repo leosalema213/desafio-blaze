@@ -20,11 +20,12 @@ li a {
 
 .btn {
   padding: 0.8rem 1rem;
-  background-color: rgb(241, 44, 76);
+  background-color: #3399FF;
   border-radius: 8px;
   border: none;
   color: #fff;
   cursor: pointer;
+  display: inline-block;
 }
 
 main {
@@ -45,6 +46,15 @@ input[type="number"]::-webkit-inner-spin-button {
 
 input[type="number"] {
   -moz-appearance: textfield;
+}
+
+.content {
+  display: flex;
+  max-width: 1104px;
+  padding: 0 16px;
+  margin: 0 auto;
+  align-items: center;
+  width: 100%;
 }
 
 @media (max-width: 768px) {
