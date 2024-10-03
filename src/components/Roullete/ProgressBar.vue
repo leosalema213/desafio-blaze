@@ -14,7 +14,7 @@ const props = defineProps<{
       Girando em <span>{{ Math.round(props.contador) / 100 }}</span>
     </div>
     <div v-else-if="props.resultado != 0" class="time_text">
-      Blaze Girou <span>{{ props.resultado }}!</span>
+      Macs Girou <span>{{ props.resultado }}!</span>
     </div>
     <div v-else class="time_text">
       <span>Girando...</span>
@@ -45,7 +45,7 @@ const props = defineProps<{
   top: 0;
   bottom: 0;
   height: 22px;
-  background-color: rgb(241, 44, 76);
+  background-color: #3399FF;
   border-radius: 4px;
 }
 

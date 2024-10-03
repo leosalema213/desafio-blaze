@@ -288,7 +288,7 @@ button.double {
   }
 
   &.active_white {
-    border-color: rgb(241, 44, 76);
+    border-color: #3399ff;
     padding: 2px;
 
     & button {
@@ -309,13 +309,13 @@ button.double {
   cursor: pointer;
 
   &.red {
-    background-color: rgb(241, 44, 76);
+    background-color: #3399ff;
     color: #fff;
   }
 
   &.white {
     background-color: #fff;
-    color: rgb(241, 44, 76);
+    color: #3399ff;
   }
 
   &.black {

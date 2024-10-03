@@ -1,7 +1,7 @@
 <script setup lang="ts">
 
 const props = defineProps<{
-  color: 'red' | 'black' | 'white';
+  color: 'blue' | 'black' | 'white';
 }>();
 
 </script>
@@ -10,15 +10,15 @@ const props = defineProps<{
   <div class="card_container">
     <div class="card">
       <div class="card_header">
-        <span v-if="props.color == 'red'">Vitória 2X</span>
+        <span v-if="props.color == 'blue'">Vitória 2X</span>
         <span v-else-if="props.color == 'black'">Vitória 2X</span>
         <span v-else="props.color == 'white'">Vitória 14X</span>
         <div class="roulette_tile">
           <img
-            v-if="props.color == 'red'"
+            v-if="props.color == 'blue'"
             class="sm_box"
             alt=""
-            src="../../assets/bets-icons/bets-red.svg"
+            src="../../assets/bets-icons/bets-blue.svg"
           />
           <img
             v-if="props.color == 'black'"
@@ -28,9 +28,9 @@ const props = defineProps<{
           />
           <img
             v-if="props.color == 'white'"
-            class="sm_box"
+            class="sm_box white"
             alt=""
-            src="../../assets/bets-icons/bets-white.svg"
+            src="../../assets/logo.png"
           />
         </div>
       </div>
@@ -100,6 +100,13 @@ const props = defineProps<{
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.sm_box.white {
+  background-color: #fff;
+  border-radius: 8px;
+  object-fit: contain;
+  filter: grayscale();
 }
 
 .card_body {

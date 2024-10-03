@@ -15,7 +15,7 @@ const props = defineProps<{
               v-if="estado != 15"
               class="sm_box black"
               :class="{
-                red: estado % 2,
+                blue: estado % 2,
                 white: estado == 15,
               }"
             >
@@ -24,7 +24,7 @@ const props = defineProps<{
               </div>
             </div>
             <div v-else class="sm_box white" style="background-color: white">
-              <img src="../../assets/roulette-icon.svg" alt="" />
+              <img src="../../assets/logo.png" alt="" />
             </div>
           </div>
         </div>
@@ -99,8 +99,8 @@ const props = defineProps<{
     background-color: #262f3c;
   }
 
-  &.red {
-    background-color: #f12c4c;
+  &.blue {
+    background-color: #3399ff;
   }
 
   &.white {
@@ -133,3 +133,4 @@ const props = defineProps<{
   }
 }
 </style>
+red
