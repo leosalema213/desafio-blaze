@@ -1,9 +1,9 @@
 <script setup lang="ts">
-import { reactive, onMounted } from "vue";
+import { reactive, onMounted, onBeforeUnmount } from "vue";
 import CardBets from "../components/Roullete/CardBets.vue";
-import RoulettController from "../components//Roullete/RouletteController.vue";
-import Roulette from "../components//Roullete/Roulette.vue";
-import RoulettResults from "../components//Roullete/RoletteResults.vue";
+import RoulettController from "../components/Roullete/RouletteController.vue";
+import Roulette from "../components/Roullete/Roulette.vue";
+import RoulettResults from "../components/Roullete/RoletteResults.vue";
 
 import { entradas } from "../utils/entradas.ts";
 import {
@@ -31,11 +31,13 @@ function numeroSorteado(numero: number): Entrada {
   return gameState.entradas[numero];
 }
 
+let gameLoop: ReturnType<typeof setInterval>;
+
 // Função para iniciar o jogo
-function startGame(): number {
+function startGame(): void {
   const progress = document.querySelector(".progress") as HTMLElement;
 
-  const gameLoop = setInterval(() => {
+  gameLoop = setInterval(() => {
     switch (gameState.jogo) {
       case "true":
         const numero = numeroSorteado(sortearNumero(134, 120));
@@ -49,49 +51,51 @@ function startGame(): number {
       case "loading":
         break;
 
+      case "spining":
+        break;
+
       case "newGame":
         reset(gameState);
         break;
     }
   }, 1000);
-
-  return gameLoop;
 }
 
-// Executa ao montar o componente
 onMounted(() => {
   differenceRouletteCenter();
 
   startGame();
 });
+
+onBeforeUnmount(() => {
+  clearInterval(gameLoop);
+});
 </script>
 
 <template>
-  <div class="content">
-    <div class="double_container">
-      <div class="game_controller">
-        <RoulettController />
+  <div class="double_container">
+    <div class="game_controller">
+      <RoulettController />
 
-        <div class="game_wrapper">
-          <Roulette
-            :resultado="gameState.resultado"
-            :contador="gameState.contador"
-            :entradas="gameState.entradas"
-            :jogo="gameState.jogo"
-          />
-          <RoulettResults :ultimosResultados="gameState.ultimosResultados" />
-        </div>
+      <div class="game_wrapper">
+        <Roulette
+          :resultado="gameState.resultado"
+          :contador="gameState.contador"
+          :entradas="gameState.entradas"
+          :jogo="gameState.jogo"
+        />
+        <RoulettResults :ultimosResultados="gameState.ultimosResultados" />
       </div>
-      <div class="bets_container">
-        <div class="bets_header">
-          <div class="bets_title"><span>APOSTAS</span></div>
-          <div class="separator"></div>
-        </div>
-        <div class="bets_body">
-          <CardBets :color="'red'" />
-          <CardBets :color="'white'" />
-          <CardBets :color="'black'" />
-        </div>
+    </div>
+    <div class="bets_container">
+      <div class="bets_header">
+        <div class="bets_title"><span>APOSTAS</span></div>
+        <div class="separator"></div>
+      </div>
+      <div class="bets_body">
+        <CardBets :color="'blue'" />
+        <CardBets :color="'white'" />
+        <CardBets :color="'black'" />
       </div>
     </div>
   </div>
@@ -141,7 +145,7 @@ onMounted(() => {
 .bets_title {
   width: 100px;
   padding: 0 15px 10px;
-  border-bottom: 2px solid rgb(241, 44, 76);
+  border-bottom: 2px solid #3399ff;
   text-align: center;
 }
 

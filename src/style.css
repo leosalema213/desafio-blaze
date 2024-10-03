@@ -61,4 +61,8 @@ input[type="number"] {
   main {
     padding: 12px 0;
   }
+
+  .content {
+    padding: 0;
+  }
 }
