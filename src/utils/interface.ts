@@ -1,5 +1,5 @@
 export interface GameState {
-  jogo: "true" | "false" | "loading" | "newGame";
+  jogo: "true" | "false" | "loading" | "newGame" | "spining";
   contador: number;
   entradas: Entrada[];
   progress?: number;

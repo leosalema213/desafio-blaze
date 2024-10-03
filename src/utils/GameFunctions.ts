@@ -18,7 +18,13 @@ export const loadingGame = (
       const decremento = (decrementoPorSegundo * deltaTime) / 10;
       gameState.contador -= decremento;
 
-      if (gameState.contador < 0) gameState.contador = 0;
+      if (gameState.contador < 0) {
+        gameState.contador = 0;
+
+        setTimeout(() => {
+          gameState.jogo = "true";
+        }, 2000);
+      }
 
       requestAnimationFrame(updateContador);
     }
@@ -44,14 +50,10 @@ export const loadingGame = (
     requestAnimationFrame(updateContador);
     requestAnimationFrame(updateProgress);
   }, 2000);
-
-  setTimeout(() => {
-    gameState.jogo = "true";
-  }, 14000);
 };
 
 export function spinRolette(gameState: GameState, numero: Numero): void {
-  gameState.jogo = "loading";
+  gameState.jogo = "spining";
 
   const slider = document.querySelector<HTMLDivElement>(".slider_animation");
 

@@ -9,7 +9,7 @@ const props = defineProps<{
   contador: number;
   entradas: Entrada[];
   resultado: number | undefined;
-  jogo: "true" | "false" | "loading" | "newGame";
+  jogo: "true" | "false" | "loading" | "newGame" | "spining";
 }>();
 
 window.addEventListener("resize", function () {
@@ -35,7 +35,7 @@ window.addEventListener("resize", function () {
                     v-if="entry.value != 15"
                     class="lg_box black"
                     :class="{
-                      red: entry.value % 2,
+                      blue: entry.value % 2,
                       white: entry.value == 15,
                     }"
                   >
@@ -48,7 +48,7 @@ window.addEventListener("resize", function () {
                     class="lg_box white"
                     style="background-color: white"
                   >
-                    <img src="../../assets/roulette-icon.svg" alt="" />
+                    <img src="../../assets/logo.png" alt="" />
                   </div>
                 </div>
               </div>
@@ -157,12 +157,18 @@ window.addEventListener("resize", function () {
     background-color: #262f3c;
   }
 
-  &.red {
-    background-color: #f12c4c;
+  &.blue {
+    background-color: #3399ff;
   }
 
   &.white {
     background-color: #fff !important;
+
+    & img {
+      object-fit: contain;
+      width: 100%;
+      filter: grayscale();
+    }
   }
 }
 
